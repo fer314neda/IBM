@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fernanda 3.14neda | Portafolio</title>
+  <meta name="description" content="Portafolio de Fernanda 3.14neda: proyectos de ciencia de datos, IA y ciberseguridad.">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <script src="js/tema.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <div class="barra">
+        <button type="button" id="boton-tema" class="boton-tema">Modo claro</button>
+      </div>
+      <h1>Fernanda 3.14neda</h1>
+      <p class="tagline">Ciencia de datos, inteligencia artificial y ciberseguridad.</p>
+      <nav aria-label="Principal">
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="nuevo.html">Nuevo proyecto</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="sobre-mi" aria-labelledby="t-sobre">
+      <h2 id="t-sobre">Sobre mí</h2>
+      <p>Estudio Ingeniería en Ciencia de Datos y me especializo en ciberseguridad, mientras desarrollo habilidades en inteligencia artificial, aprendizaje automático y procesamiento de lenguaje natural.</p>
+      <p>Aquí reúno los proyectos que voy construyendo, con su código y, cuando existe, una demo para probarlos.</p>
+    </section>
+
+    <section id="proyectos" aria-labelledby="t-proyectos">
+      <h2 id="t-proyectos">Proyectos</h2>
+      <!-- Controles: se muestran cuando los proyectos terminan de cargar -->
+      <div id="controles" class="controles" hidden>
+        <label for="buscador" class="solo-lectores">Buscar proyectos</label>
+        <input type="search" id="buscador" placeholder="Buscar por título, descripción o tecnología" autocomplete="off">
+        <div id="filtros" class="filtros" role="group" aria-label="Filtrar por tecnología"></div>
+        <p id="resumen" class="resumen" aria-live="polite"></p>
+      </div>
+      <div id="lista-proyectos" class="grid">
+        <p>Cargando proyectos…</p>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contacto" class="site-footer">
+    <div class="wrap">
+      <h2>Contacto</h2>
+      <ul>
+        <li><a href="mailto:correo@ejemplo.com">correo@ejemplo.com</a></li>
+        <li><a href="https://github.com/tu-usuario" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/tu-usuario" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      </ul>
+      <p class="copy">© <span id="anio"></span> Fernanda 3.14neda</p>
+    </div>
+  </footer>
+</body>
+</html>

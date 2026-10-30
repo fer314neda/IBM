@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Proyecto | Fernanda 3.14neda</title>
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <script src="js/tema.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="module" src="js/detalle.js"></script>
+</head>
+<body>
+  <header class="site-header site-header--compacto">
+    <div class="wrap barra">
+      <p class="marca"><a href="index.html">Fernanda 3.14neda</a></p>
+      <button type="button" id="boton-tema" class="boton-tema">Modo claro</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <a class="volver" href="index.html#proyectos"><span aria-hidden="true">←</span> Volver a los proyectos</a>
+    <article id="detalle" class="detalle">
+      <p>Cargando proyecto…</p>
+    </article>
+  </main>
+
+  <!-- Visor de capturas: <dialog> con showModal() -->
+  <dialog id="visor" class="visor" aria-label="Captura ampliada">
+    <figure>
+      <img alt="" src="">
+      <figcaption></figcaption>
+    </figure>
+    <button type="button" id="cerrar-visor" class="boton-limpiar" autofocus>Cerrar</button>
+  </dialog>
+
+  <footer id="contacto" class="site-footer">
+    <div class="wrap">
+      <h2>Contacto</h2>
+      <ul>
+        <li><a href="mailto:correo@ejemplo.com">correo@ejemplo.com</a></li>
+        <li><a href="https://github.com/tu-usuario" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/tu-usuario" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      </ul>
+      <p class="copy">© <span id="anio"></span> Fernanda 3.14neda</p>
+    </div>
+  </footer>
+</body>
+</html>

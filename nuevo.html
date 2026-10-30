@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nuevo proyecto | Fernanda 3.14neda</title>
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <script src="js/tema.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="module" src="js/nuevo.js"></script>
+</head>
+<body>
+  <header class="site-header site-header--compacto">
+    <div class="wrap barra">
+      <p class="marca"><a href="index.html">Fernanda 3.14neda</a></p>
+      <button type="button" id="boton-tema" class="boton-tema">Modo claro</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <a class="volver" href="index.html#proyectos"><span aria-hidden="true">←</span> Volver a los proyectos</a>
+
+    <section class="bloque-pagina" aria-labelledby="titulo-formulario">
+      <h1 id="titulo-formulario">Nuevo proyecto</h1>
+      <p class="ayuda">Tus proyectos se guardan solo en este navegador y se combinan con los de <code>data/projects.json</code>.</p>
+
+      <div id="errores" class="errores" role="alert" tabindex="-1" hidden></div>
+      <p id="estado" class="estado" role="status"></p>
+
+      <form id="formulario" class="formulario">
+        <div class="campo">
+          <label for="f-titulo">Título (obligatorio)</label>
+          <input class="entrada" id="f-titulo" name="titulo" type="text" maxlength="120" required>
+        </div>
+        <div class="campo">
+          <label for="f-corta">Descripción corta (obligatorio)</label>
+          <input class="entrada" id="f-corta" name="descripcionCorta" type="text" maxlength="200" required aria-describedby="ayuda-corta">
+          <p class="ayuda" id="ayuda-corta">Una o dos frases para la tarjeta.</p>
+        </div>
+        <div class="campo">
+          <label for="f-desc">Descripción completa (obligatorio)</label>
+          <textarea class="entrada" id="f-desc" name="descripcion" rows="5" maxlength="3000" required></textarea>
+        </div>
+        <div class="campo">
+          <label for="f-tec">Tecnologías (obligatorio)</label>
+          <input class="entrada" id="f-tec" name="tecnologias" type="text" required aria-describedby="ayuda-tec" placeholder="Python, scikit-learn, NLP">
+          <p class="ayuda" id="ayuda-tec">Sepáralas con comas.</p>
+        </div>
+        <div class="campo">
+          <label for="f-repo">Repositorio (opcional)</label>
+          <input class="entrada" id="f-repo" name="repositorio" type="url" placeholder="https://github.com/usuario/proyecto">
+        </div>
+        <div class="campo">
+          <label for="f-demo">Demo (opcional)</label>
+          <input class="entrada" id="f-demo" name="demo" type="url" placeholder="https://...">
+        </div>
+        <div class="campo">
+          <label for="f-fecha">Fecha (obligatorio)</label>
+          <input class="entrada" id="f-fecha" name="fecha" type="date" required>
+        </div>
+
+        <fieldset class="campo grupo">
+          <legend>Imagen (obligatorio)</legend>
+          <label for="f-archivo">Elegir un archivo</label>
+          <input id="f-archivo" name="imagenArchivo" type="file" accept="image/*" aria-describedby="ayuda-img">
+          <label for="f-ruta">O escribir su ruta o URL</label>
+          <input class="entrada" id="f-ruta" name="imagenRuta" type="text" placeholder="assets/img/projects/mi-proyecto.png">
+          <p class="ayuda" id="ayuda-img">Si eliges un archivo, se reduce a 1200 px de ancho para ahorrar espacio.</p>
+          <label for="f-alt">Descripción de la imagen (obligatorio)</label>
+          <input class="entrada" id="f-alt" name="imagenAlt" type="text" maxlength="200" required>
+          <img id="vista-previa" class="vista-previa" alt="Vista previa de la imagen elegida" hidden>
+        </fieldset>
+
+        <details id="extras" class="campo">
+          <summary>Más detalles para la página del proyecto (opcional)</summary>
+          <div class="campo">
+            <label for="f-problema">El problema que resuelve</label>
+            <textarea class="entrada" id="f-problema" name="problema" rows="3" maxlength="2000"></textarea>
+          </div>
+          <div class="campo">
+            <label for="f-construccion">Cómo lo construí</label>
+            <textarea class="entrada" id="f-construccion" name="construccion" rows="4" maxlength="2000"></textarea>
+          </div>
+          <div class="campo">
+            <label for="f-aprendizajes">Lo que aprendí</label>
+            <textarea class="entrada" id="f-aprendizajes" name="aprendizajes" rows="4" aria-describedby="ayuda-apr"></textarea>
+            <p class="ayuda" id="ayuda-apr">Escribe uno por línea.</p>
+          </div>
+        </details>
+
+        <div class="acciones-formulario">
+          <button type="submit" class="boton-primario">Guardar proyecto</button>
+          <button type="button" id="cancelar" class="boton-secundario" hidden>Cancelar edición</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="bloque-pagina" aria-labelledby="titulo-gestion">
+      <h2 id="titulo-gestion" tabindex="-1">Mis proyectos</h2>
+      <ul id="lista-gestion" class="gestion"></ul>
+
+      <div class="copias">
+        <h3>Copia de seguridad</h3>
+        <p class="ayuda">Exporta de vez en cuando: si borras los datos del sitio en el navegador, los proyectos locales se pierden. Para publicarlos de forma permanente, reemplaza <code>data/projects.json</code> con el archivo exportado.</p>
+        <button type="button" id="exportar" class="boton-secundario">Exportar todo a JSON</button>
+        <div class="campo">
+          <label for="importar">Importar desde un archivo JSON</label>
+          <input id="importar" type="file" accept="application/json,.json" aria-describedby="ayuda-imp">
+          <p class="ayuda" id="ayuda-imp">Los proyectos con el mismo identificador se actualizan; los demás se agregan.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap"><p class="copy">Fernanda 3.14neda. Los datos de esta página viven en tu navegador.</p></div>
+  </footer>
+</body>
+</html>
